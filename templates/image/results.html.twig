@@ -1,0 +1,46 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Image Results{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Image Results</h1>
+        <div class="images-grid">
+            {% for image in images %}
+                <div class="image-item">
+                    <img src="{{ image.url }}" alt="Fetched Image" class="img-fluid">
+                    <p>Size: {{ image.size / 1024 }} KB</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="results-summary">
+            <p>Total Images: {{ totalCount }}</p>
+            <p>Total Size: {{ totalSizeMb }} MB</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .images-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .image-item {
+            flex: 1 1 calc(25% - 20px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+{% endblock %}

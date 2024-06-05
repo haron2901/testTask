@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Fetcher</title>
+</head>
+<body>
+<h1>Введите URL страницы</h1>
+<form action="{{ path('fetch_images') }}" method="post">
+    <input type="text" name="url" placeholder="URL страницы" required>
+    <button type="submit">Го</button>
+</form>
+</body>
+</html>
